@@ -49,7 +49,7 @@
 }
 
 .navbar-links a {
-    color: #fff; /* White text color */
+    color: silver; /* White text color */
     text-decoration: none;
     font-size: 18px;
     padding: 10px 15px;
@@ -64,7 +64,7 @@
 }
 
 .navbar-links a:active {
-    background-color: #357ab7; /* Darker blue when active */
+    background-color: silver; /* Darker blue when active */
 }
 
 /* Ensure content doesn't hide behind navbar */
