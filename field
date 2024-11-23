@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Front Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="front-page">
+    <h1>Welcome to the Podcast</h1>
+
+    <div class="tile-container">
+        <a href="music.html" class="tile music-tile">
+            <div class="tile-content">
+                <h2>Music</h2>
+                <p>Listen to the latest music tracks</p>
+            </div>
+        </a>
+
+        <a href="poetry.html" class="tile poetry-tile">
+            <div class="tile-content">
+                <h2>Poetry</h2>
+                <p>Enjoy the beauty of spoken word</p>
+            </div>
+        </a>
+    </div>
+
+</body>
+</html>
