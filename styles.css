@@ -74,7 +74,11 @@ button:hover {
 }
 
 button:active {
-    background-color: #285e8a; /* Slightly darker shade for active state */
+    background-color: #285e8a;
+}
+
+button:focus {
+    outline: none;
 }
 
 #progress-container {
