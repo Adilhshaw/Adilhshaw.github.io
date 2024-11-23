@@ -64,7 +64,7 @@
 }
 
 .navbar-links a:active {
-    background-color: silver; /* Darker blue when active */
+    background-color: #C0C0C0; /* Darker blue when active */
 }
 
 /* Ensure content doesn't hide behind navbar */
