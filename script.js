@@ -1,7 +1,7 @@
 // Array of audio files with their names and direct links
 const files = [
-    { name: "Right Now", link: "https://drive.google.com/uc?export=download&id=1LKPuCvTp-6_OQPhN8Uq0wW9dyv-8fMtz" },
-    { name: "Chamak Challo", link: "https://drive.google.com/uc?export=download&id=1oHsDN2A8jt2QJOy-c9pwz_NLbOOWlSWv" }];
+    { name: "Right Now", link: "Track1.mp3" },
+    { name: "Chamak Challo", link: "Track2.mp3" }];
 
 const fileList = document.getElementById("fileList");
 const audioPlayer = document.getElementById("audioPlayer");
