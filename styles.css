@@ -18,37 +18,94 @@ body {
     background: linear-gradient(145deg, #ffffff, #e6e6e6);
 }
 
-/* Main container */
-#player-container {
+h1 {
+    font-size: 32px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Custom player container */
+#custom-player {
     background: #ffffff;
     border-radius: 15px;
     padding: 20px;
     width: 100%;
-    max-width: 600px;
+    max-width: 500px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 30px;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
-/* Audio player styles */
-audio {
-    width: 100%;
-    border-radius: 8px;
-    margin-top: 10px;
-}
-
-#now-playing {
-    font-size: 16px;
-    color: #555;
-    margin-top: 10px;
-    font-weight: bold;
+#track-info {
+    margin-bottom: 10px;
 }
 
 #current-track {
-    color: #222;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
 }
 
-/* Track list styles */
+#track-duration {
+    font-size: 14px;
+    color: #888;
+}
+
+#controls {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4a90e2;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+button:hover {
+    background-color: #357ab7;
+}
+
+#progress-container {
+    margin-top: 10px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="range"]:focus {
+    background: #ccc;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #4a90e2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#volume-container {
+    margin-top: 10px;
+}
+
 h2 {
     font-size: 24px;
     font-weight: bold;
@@ -85,21 +142,13 @@ li.selected {
     color: white;
 }
 
-/* Styling for "Now Playing" */
-#now-playing {
-    font-size: 18px;
-    margin-top: 15px;
-    font-weight: 600;
-    color: #333;
-}
-
 /* Responsive Styles */
 @media (max-width: 768px) {
     body {
         padding: 15px;
     }
 
-    #player-container {
+    #custom-player {
         padding: 15px;
     }
 
