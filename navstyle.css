@@ -1,0 +1,43 @@
+/* Navbar Styles */
+#navbar {
+    background-color: #4a90e2;
+    padding: 10px 0;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000; /* Ensure the navbar stays on top */
+}
+
+#navbar ul {
+    list-style: none;
+    padding: 0;
+}
+
+#navbar li {
+    display: inline;
+    margin-right: 20px;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+#navbar a:hover {
+    background-color: #357ab7;
+}
+
+#navbar a:active {
+    background-color: #285e8a;
+}
+
+/* Ensure content is not hidden behind the navbar */
+body {
+    padding-top: 60px;  /* Adjust according to navbar height */
+}
