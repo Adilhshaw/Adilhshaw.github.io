@@ -86,19 +86,16 @@ body {
     }
 
     .navbar-links {
-        flex-direction: column; /* Stack links vertically */
-        align-items: flex-start;
-        width: 100%; /* Make links fill the available space */
+        flex-direction: row; /* Ensure the links stay horizontal even on mobile */
+        width: 100%; /* Ensure the container takes full width */
+        justify-content: center; /* Center the links on smaller screens */
     }
 
     .navbar-links li {
-        margin: 10px 0; /* Add vertical spacing */
-        width: 100%; /* Make each link take full width */
+        margin: 0 15px; /* Horizontal margin for better spacing */
     }
 
     .navbar-links a {
-        padding: 12px 0; /* Adjust padding for better mobile appearance */
-        width: 100%; /* Ensure each link is block level on mobile */
-        text-align: center; /* Center align text */
+        padding: 12px 15px; /* Adjust padding for better appearance on mobile */
     }
 }
