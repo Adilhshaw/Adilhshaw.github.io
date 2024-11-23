@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
     const files = [
-        { name: "Track 1 - Chill Beats", file: "Track1.mp3" },
-        { name: "Track 2 - Smooth Jiziziz", file: "Track2.mp3" },
+        { name: "Track 1 - Chill Beats", file: "track1.mp3" },
+        { name: "Track 2 - Smooth Jiziziz", file: "track2.mp3" },
     ];
 
     const fileList = document.getElementById("file-list");
