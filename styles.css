@@ -66,11 +66,15 @@ button {
     font-size: 20px;
     border-radius: 50%;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 button:hover {
     background-color: #357ab7;
+}
+
+button:active {
+    background-color: #285e8a; /* Slightly darker shade for active state */
 }
 
 #progress-container {
@@ -127,14 +131,14 @@ li {
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, color 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
+/* Remove scale effect on hover */
 li:hover {
     background: #4a90e2;
     color: white;
-    transform: scale(1.05);
 }
 
 li.selected {
