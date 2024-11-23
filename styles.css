@@ -43,9 +43,9 @@ h1 {
 }
 
 #current-track {
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
-    color: #333;
+    color: #1f76ff;
 }
 
 #track-duration {
@@ -66,22 +66,20 @@ button {
     font-size: 20px;
     border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 button:hover {
     background-color: #357ab7;
+    transform: scale(1.1);
 }
 
 button:active {
     background-color: #285e8a;
 }
 
-button:focus {
-    outline: none;
-}
-
-#progress-container {
+#progress-container,
+#volume-container {
     margin-top: 10px;
 }
 
@@ -91,9 +89,10 @@ input[type="range"] {
     -webkit-appearance: none;
     appearance: none;
     height: 8px;
-    background: #ddd;
+    background: linear-gradient(to right, #4a90e2, #ddd);
     border-radius: 5px;
     outline: none;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 input[type="range"]:focus {
@@ -110,17 +109,6 @@ input[type="range"]::-webkit-slider-thumb {
     cursor: pointer;
 }
 
-#volume-container {
-    margin-top: 10px;
-}
-
-h2 {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 20px;
-    color: #333;
-}
-
 ul {
     list-style: none;
     width: 100%;
@@ -135,36 +123,17 @@ li {
     cursor: pointer;
     font-size: 18px;
     font-weight: 500;
-    transition: background-color 0.3s ease, color 0.3s ease;
+    transition: background-color 0.3s ease, transform 0.3s ease, color 0.3s ease;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-/* Remove scale effect on hover */
 li:hover {
     background: #4a90e2;
     color: white;
+    transform: scale(1.02);
 }
 
 li.selected {
     background: #1f76ff;
     color: white;
-}
-
-/* Responsive Styles */
-@media (max-width: 768px) {
-    body {
-        padding: 15px;
-    }
-
-    #custom-player {
-        padding: 15px;
-    }
-
-    ul {
-        width: 100%;
-    }
-
-    li {
-        font-size: 16px;
-    }
 }
