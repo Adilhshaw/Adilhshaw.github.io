@@ -17,23 +17,23 @@
         </div>
 
         <div id="controls">
-            <button id="backward-btn">-20s</button>
-            <button id="play-pause-btn">Play</button>
-            <button id="forward-btn">+10s</button>
+            <button id="backward-btn" aria-label="Rewind 20 seconds">-20s</button>
+            <button id="play-pause-btn" aria-label="Play or Pause">Play</button>
+            <button id="forward-btn" aria-label="Fast-forward 10 seconds">+10s</button>
         </div>
 
         <div id="progress-container">
-            <input type="range" id="progress-bar" value="0" step="1" max="100" />
+            <input type="range" id="progress-bar" value="0" step="1" max="100" aria-label="Audio Progress">
         </div>
 
         <div id="volume-container">
-            <input type="range" id="volume-bar" value="100" max="100" />
+            <input type="range" id="volume-bar" value="100" max="100" aria-label="Volume Control">
         </div>
     </div>
 
     <ul id="file-list">
-        <li data-file="track1.mp3">Track 2</li>
-        <li data-file="track2.mp3">Track 3</li>
+        <li data-file="track1.mp3" data-name="Relaxing Music">Chammak Challo</li>
+        <li data-file="track2.mp3" data-name="Chill Beats">Right now</li>
     </ul>
 
     <script src="script.js"></script>
