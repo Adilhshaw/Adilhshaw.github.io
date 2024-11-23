@@ -1,53 +1,113 @@
-/* General Styling */
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    padding: 20px;
-}
-
-h1 {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
     color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
 }
 
-h2 {
-    margin-top: 30px;
-}
-
-/* Audio Player Styling */
-#audio-player {
+/* Main container */
+#player-container {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
     width: 100%;
     max-width: 600px;
-    margin-top: 20px;
-    background-color: #222;
-    border-radius: 10px;
-    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Audio player styles */
+audio {
+    width: 100%;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
 #now-playing {
+    font-size: 16px;
+    color: #555;
     margin-top: 10px;
     font-weight: bold;
+}
+
+#current-track {
+    color: #222;
+}
+
+/* Track list styles */
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
     color: #333;
 }
 
-#file-list {
-    list-style-type: none;
-    padding: 0;
+ul {
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
 }
 
-#file-list li {
-    cursor: pointer;
+li {
     padding: 10px;
-    background-color: #f0f0f0;
-    margin-bottom: 5px;
-    border-radius: 4px;
-    transition: background-color 0.3s;
+    background: #fff;
+    margin: 5px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
 }
 
-#file-list li:hover {
-    background-color: #e1e1e1;
+li:hover {
+    background: #4a90e2;
+    color: white;
+    transform: scale(1.05);
 }
 
-/* Highlight selected track */
-#file-list li.selected {
-    background-color: #d3d3d3;
+li.selected {
+    background: #1f76ff;
+    color: white;
+}
+
+/* Styling for "Now Playing" */
+#now-playing {
+    font-size: 18px;
+    margin-top: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    #player-container {
+        padding: 15px;
+    }
+
+    ul {
+        width: 100%;
+    }
+
+    li {
+        font-size: 16px;
+    }
 }
