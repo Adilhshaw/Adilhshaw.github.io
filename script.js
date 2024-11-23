@@ -89,7 +89,11 @@ fileListItems.forEach((item, index) => {
         loadTrack(file, name);
 
         currentTrackIndex = index;
-        if (!isPlaying) togglePlayPause(); // Play the new track
+        
+        // Play the newly loaded track immediately
+        audio.play();
+        playPauseBtn.textContent = "Pause"; // Update the button text
+        isPlaying = true;
     });
 });
 
