@@ -1,0 +1,168 @@
+/* Global styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f7f7;
+    color: #333;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background: linear-gradient(145deg, #ffffff, #e6e6e6);
+}
+
+/* Change background color for Poetry section */
+body.poetry {
+    background: linear-gradient(145deg, #e8b6ff, #d8a3ff);  /* Soft purple gradient */
+}
+
+/* Change header style for Poetry section */
+h1#header {
+    font-size: 36px;
+    color: #5e0063;  /* Dark purple for the Poetry section */
+    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+}
+
+/* Custom player container */
+#custom-player {
+    background: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#track-info {
+    margin-bottom: 10px;
+}
+
+#current-track {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+#track-duration {
+    font-size: 14px;
+    color: #888;
+}
+
+#controls {
+    margin-bottom: 10px;
+}
+
+button {
+    background-color: #4a90e2;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    color: white;
+    font-size: 20px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ab7;
+}
+
+button:active {
+    background-color: #285e8a;
+}
+
+button:focus {
+    outline: none;
+}
+
+#progress-container {
+    margin-top: 10px;
+}
+
+input[type="range"] {
+    width: 100%;
+    margin: 10px 0;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 8px;
+    background: #ddd;
+    border-radius: 5px;
+    outline: none;
+}
+
+input[type="range"]:focus {
+    background: #ccc;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #4a90e2;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#volume-container {
+    margin-top: 10px;
+}
+
+ul {
+    list-style: none;
+    width: 100%;
+    padding-left: 0;
+}
+
+li {
+    padding: 10px;
+    background: #fff;
+    margin: 5px 0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 500;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+}
+
+li:hover {
+    background: #4a90e2;
+    color: white;
+}
+
+li.selected {
+    background: #1f76ff;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    #custom-player {
+        padding: 15px;
+    }
+
+    ul {
+        width: 100%;
+    }
+
+    li {
+        font-size: 16px;
+    }
+}
