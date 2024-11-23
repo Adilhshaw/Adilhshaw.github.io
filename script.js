@@ -1,7 +1,6 @@
 // Initialize the player and variables
 let audio = new Audio();
 let currentTrackIndex = 0;
-let tracks = [];
 let isPlaying = false;
 let progressBar = document.getElementById('progress-bar');
 let playPauseBtn = document.getElementById('play-pause-btn');
@@ -10,41 +9,41 @@ let forwardBtn = document.getElementById('forward-btn');
 let currentTrackElement = document.getElementById('current-track');
 let trackDurationElement = document.getElementById('track-duration');
 
-// Function to load a track
+// Function to load a track from its URL
 function loadTrack(file) {
-    audio.src = file;
-    audio.load();
-    currentTrackElement.textContent = file.split('/').pop();  // Display track name
+    audio.src = file;  // Set audio source to the file URL
+    audio.load();  // Load the audio file
+    currentTrackElement.textContent = file.split('/').pop();  // Display the track name based on file name
     audio.onloadedmetadata = function() {
-        updateTrackDuration();  // Update the duration when track is loaded
+        updateTrackDuration();  // Update the duration when track metadata is loaded
     };
 }
 
 // Function to play or pause the audio
 function togglePlayPause() {
     if (isPlaying) {
-        audio.pause();
-        playPauseBtn.textContent = "Play";  // Change text to "Play" when paused
+        audio.pause();  // Pause the audio if it's playing
+        playPauseBtn.textContent = "Play";  // Change button text to "Play"
     } else {
-        audio.play();
-        playPauseBtn.textContent = "Pause";  // Change text to "Pause" when playing
+        audio.play();  // Play the audio if it's paused
+        playPauseBtn.textContent = "Pause";  // Change button text to "Pause"
     }
-    isPlaying = !isPlaying;
+    isPlaying = !isPlaying;  // Toggle the play state
 }
 
 // Function to update progress bar and track duration
 function updateProgress() {
     const currentTime = audio.currentTime;
     const duration = audio.duration;
-    progressBar.value = (currentTime / duration) * 100;  // Update progress bar
+    progressBar.value = (currentTime / duration) * 100;  // Update progress bar position
 
-    // Convert time to minutes and seconds for display
+    // Convert time into minutes:seconds format for both current and total duration
     const currentMinutes = Math.floor(currentTime / 60);
     const currentSeconds = Math.floor(currentTime % 60);
     const totalMinutes = Math.floor(duration / 60);
     const totalSeconds = Math.floor(duration % 60);
 
-    // Update track duration display (current time / total time)
+    // Display the current time and total time
     trackDurationElement.textContent = `${currentMinutes}:${currentSeconds < 10 ? '0' + currentSeconds : currentSeconds} / ${totalMinutes}:${totalSeconds < 10 ? '0' + totalSeconds : totalSeconds}`;
 }
 
@@ -67,9 +66,16 @@ forwardBtn.addEventListener('click', jumpForward);
 const fileListItems = document.querySelectorAll('#file-list li');
 fileListItems.forEach((item, index) => {
     item.addEventListener('click', function() {
-        loadTrack(item.getAttribute('data-file'));  // Load the selected track
-        item.classList.add('selected');  // Highlight the selected track in the list
-        currentTrackIndex = index;  // Set current track index
+        // Remove 'selected' class from all items
+        fileListItems.forEach(fileItem => fileItem.classList.remove('selected'));
+        
+        // Add 'selected' class to the clicked track
+        item.classList.add('selected');  
+
+        // Load the selected track
+        loadTrack(item.getAttribute('data-file'));  
+        
+        currentTrackIndex = index;  // Update the current track index
         togglePlayPause();  // Toggle play/pause when a track is selected
     });
 });
