@@ -5,9 +5,9 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    background: rgba(0, 0, 0, 0.7); /* Semi-transparent black background */
-    padding: 15px 30px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black background */
+    padding: 10px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
     transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
@@ -24,7 +24,7 @@
 
 /* Brand name styles */
 .navbar-brand {
-    color: #fff; /* White color for brand */
+    color: #fff; /* Keep brand text white */
     font-size: 24px;
     font-weight: bold;
     text-decoration: none;
@@ -33,7 +33,7 @@
 }
 
 .navbar-brand:hover {
-    color: #4a90e2; /* Blue color on hover for brand */
+    color: #4a90e2; /* Change brand color on hover */
 }
 
 /* Navbar links styles */
@@ -49,7 +49,7 @@
 }
 
 .navbar-links a {
-    color: #C0C0C0; /* Silver color for link text */
+    color: #fff; /* White text color */
     text-decoration: none;
     font-size: 18px;
     padding: 10px 15px;
@@ -60,7 +60,7 @@
 
 .navbar-links a:hover {
     background-color: #4a90e2; /* Blue background on hover */
-    color: #fff; /* White text color when hovered */
+    color: #fff; /* Keep the text color white */
 }
 
 .navbar-links a:active {
@@ -69,13 +69,32 @@
 
 /* Ensure content doesn't hide behind navbar */
 body {
-    padding-top: 70px; /* Adjust according to navbar height */
+    padding-top: 60px; /* Adjust according to navbar height */
+}
+
+/* Button Styles (for any additional buttons) */
+button {
+    background-color: #4a90e2; /* Blue background for buttons */
+    color: white; /* White text for button */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #357ab7; /* Darker blue on hover */
+}
+
+button:active {
+    background-color: #285e8a; /* Even darker blue on click */
 }
 
 /* Responsive Styles */
 @media (max-width: 768px) {
     #navbar {
-        padding: 15px 20px;
+        padding: 10px 15px;
     }
 
     .navbar-container {
@@ -89,6 +108,6 @@ body {
     }
 
     .navbar-links li {
-        margin: 10px 0;
+        margin: 5px 0;
     }
 }
