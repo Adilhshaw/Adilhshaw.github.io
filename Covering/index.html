@@ -3,18 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Form Page</title>
+    <title>Covering Page Generator</title>
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        /* Form Container */
+        form {
+            background: #ffffff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Form Labels */
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            color: #34495e;
+        }
+
+        /* Form Inputs */
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus {
+            border-color: #3498db;
+            outline: none;
+        }
+
+        /* Submit Button */
+        button[type="submit"] {
+            background-color: #3498db;
+            color: #fff;
+            font-size: 1rem;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            form {
+                padding: 15px;
+            }
+
+            input[type="text"] {
+                font-size: 0.9rem;
+            }
+
+            button[type="submit"] {
+                font-size: 0.9rem;
+                padding: 8px 12px;
+            }
+        }
+    </style>
 </head>
 <body>
-    <h1>Enter Details</h1>
     <form action="covering_generator.html" method="GET">
+        <h1>Enter Details</h1>
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-        <br><br>
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        
         <label for="month">Month:</label>
-        <input type="text" id="month" name="month" required>
-        <br><br>
+        <input type="text" id="month" name="month" placeholder="Enter the month" required>
+        
         <button type="submit">Submit</button>
     </form>
 </body>
+    © Adil Hussain.
+    Disclaimer: This tool is not affiliated with University of Kashmir in any manner. It is meant solely for experimentation and testing purposes. DO NOT USE THIS TOOL IF YOU ARE NOT THE INTENDED USER!
+
 </html>
