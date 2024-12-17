@@ -32,8 +32,8 @@
             border: 1px solid #e0e0e5;
             border-radius: 12px;
             padding: 1.5rem;
-            width: 90%; /* Ensures full width on small screens */
-            max-width: 400px;
+            width: 100%; /* Full width on small screens */
+            max-width: 400px; /* Constrained width for larger screens */
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
         }
@@ -87,6 +87,14 @@
             background-color: #005bb5;
         }
 
+        /* Responsive Design */
+        @media (max-width: 480px) {
+            form {
+                width: 100%; /* Full width on small screens */
+                margin: 0 10px; /* Small padding to avoid edge collisions */
+            }
+        }
+
         /* Footer Section */
         footer {
             text-align: center;
@@ -121,7 +129,7 @@
     <footer>
         &copy; Adil Hussain.<br>
         Disclaimer: This tool is not affiliated with University of Kashmir. Meant solely for experimentation.<br>
-        <a href="#">Learn More</a>
+        <a href="mailto:adilhshaw@gmail.com">Contact Me</a>
     </footer>
 </body>
 </html>
