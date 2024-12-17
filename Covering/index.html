@@ -11,6 +11,26 @@
 		p { line-height: 115%; text-align: left; orphans: 2; widows: 2; margin-bottom: 0.1in; direction: ltr; background: transparent }
 		p.western { so-language: en-GB }
 	</style>
+	   <script>
+        // Function to get query parameters from the URL
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            return {
+                name: params.get('name') || 'Adil', // Default to "Adil" if no value
+                month: params.get('month') || 'Month' // Default to "Month" if no value
+            };
+        }
+
+        // Function to replace placeholders with dynamic data
+        function replaceValues() {
+            const data = getQueryParams();
+            document.getElementById('nameField').textContent = data.name;
+            document.getElementById('monthField').textContent = data.month;
+        }
+
+        window.onload = replaceValues; // Call replaceValues when the page loads
+    </script>
+</head>
 </head>
 <body lang="en-GB" link="#000080" vlink="#800000" dir="ltr"><p style="line-height: 108%; margin-bottom: 0.11in">
 <img src="im2.gif" name="image2.png" alt="image2.png" align="left" hspace="12" width="675" height="129"/>
@@ -55,8 +75,8 @@ of Kashmir</b></font></font></p>
 </p>
 <p style="line-height: 108%; margin-bottom: 0.11in"><font face="Times New Roman"><font size="3" style="font-size: 12pt"><b>Sir</b></font></font><font face="Times New Roman"><font size="3" style="font-size: 12pt">,</font></font></p>
 <p style="line-height: 108%; margin-bottom: 0.11in"><font face="Times New Roman"><font size="3" style="font-size: 12pt">	Please
-find enclosed the following documents for the month of December 2024
-of Mr Adil Hussain, I-Ph.D scholar at the Department of English, for
+find enclosed the following documents for the month of <span id="monthField">Month</span>, 2025
+of Mr <span id="nameField">Adil Hussain</span>, I-Ph.D scholar at the Department of English, for
 the release of his fellowship at the earliest:</font></font></p>
 <p style="line-height: 108%; margin-bottom: 0.11in"><br/>
 <br/>
