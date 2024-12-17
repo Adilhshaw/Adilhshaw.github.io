@@ -1,1 +1,67 @@
+<!Doctype html>  
+<html>     
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<head>
+<Title>     
+WhatsApp without contact 
+</Title> 
+<link rel="stylesheet" href="styles.css">  
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">  
+</script> 
+<script type="text/javascript">
+function WhatNo(){
+    var action_src = "https://wa.me/" + document.getElementsByName("keywords")[0].value;
+    var your_form = document.getElementById('your_form');
+    your_form.action = action_src ;
+}
+   </script> 
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css">
+  <style> /* Place your CSS styles in this file */
+
+h1 {
+    text-align: center;
+    font-family: "Source Sans Pro", sans-serif;
+    font-weight: normal;
+}
+#main{height:94%;position:absolute; width:90%; padding:10px;}
+#formbox{width:auto;}
+form {
+  width:80%;
+  /*max-width: 500px;*/
+  margin:auto;
+  background:#fafafa;
+  -webkit-box-shadow: 0px 0px 96px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 96px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 96px 0px rgba(0,0,0,0.75);
+  min-height: 250px;
+  padding: 20px;
+}
+
+form input {
+  width: 92%;
+  height: 28px;
+  margin-bottom: 15px;
+  padding: 9px;
+}
+#send{width:100%;height:auto; color:white; background:green;padding:12px;border:none;}
+#tophalf{height:20%;}
+#bothalf{height:50%;}
+#toolinfo{padding-top:20%}</style>
+    </head>
+   <body>
+       <div id=main>
+       <div id=tophalf> <h2> Whatsapp any number without saving the contact</h2><p></div>
+       <div id=bothalf>
+<form id="your_form" onsubmit="WhatNo()"> <p> Don't forget to entre country code<p>
+    <input type="text" name="keywords" placeholder="Type the number with country code">
+    <button id="send" type=submit class="btn btn-primary"> <span class="bi bi-whatsapp"> </span>Send Text</button>
+    <div id=toolinfo>
+        A tool by Adil
+       <p> <a href=https://pmny.in/drkCysS3VR40> Buy me a coffee!</a> <span class="bi bi-cup-fill red-color"> </span>
+
+</form>
+</div>
+</div>
+</body>
+</html>
