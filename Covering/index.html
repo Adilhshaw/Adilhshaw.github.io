@@ -89,9 +89,23 @@
 
         /* Responsive Design */
         @media (max-width: 480px) {
+            body {
+                padding: 0 15px; /* Adding padding to the body to avoid content being cut off */
+            }
+            
             form {
+                padding: 1rem; /* Less padding on small screens */
                 width: 100%; /* Full width on small screens */
-                margin: 0 10px; /* Small padding to avoid edge collisions */
+                box-sizing: border-box;
+            }
+
+            input[type="text"] {
+                font-size: 1rem; /* Larger font size for easier typing */
+            }
+
+            button[type="submit"] {
+                font-size: 1.1rem; /* Slightly larger button text */
+                padding: 14px; /* Larger button for better usability */
             }
         }
 
@@ -129,7 +143,7 @@
     <footer>
         &copy; Adil Hussain.<br>
         Disclaimer: This tool is not affiliated with University of Kashmir. Meant solely for experimentation.<br>
-        <a href="mailto:adilhshaw@gmail.com">Contact Me</a>
+        <a href="#">Learn More</a>
     </footer>
 </body>
 </html>
