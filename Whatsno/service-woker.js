@@ -1,13 +1,13 @@
 self.addEventListener('install', (event) => {
+  console.log('Service Worker installing...');
   event.waitUntil(
-    caches.open('my-pwa-cache').then((cache) => {
+    caches.open('whatsno-cache-v1').then((cache) => {
       return cache.addAll([
         '/',
         '/index.html',
-        '/styles.css',
-        '/script.js',
-        '/icon-192x192.png',
-        '/icon-512x512.png'
+        '/manifest.json',
+        '/android-chrome-192x192.png',
+        '/android-chrome-512x512.png',
       ]);
     })
   );
