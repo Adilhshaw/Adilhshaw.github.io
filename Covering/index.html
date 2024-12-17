@@ -32,7 +32,7 @@
             border: 1px solid #e0e0e5;
             border-radius: 12px;
             padding: 1.5rem;
-            width: 100%; /* Full width on small screens */
+            width: 100%;
             max-width: 400px; /* Constrained width for larger screens */
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
@@ -88,15 +88,16 @@
         }
 
         /* Responsive Design */
-        @media (max-width: 480px) {
+        @media (max-width: 600px) {
             body {
-                padding: 0 15px; /* Adding padding to the body to avoid content being cut off */
+                padding: 0 20px; /* Adding padding to the body to avoid content being cut off */
             }
-            
+
             form {
                 padding: 1rem; /* Less padding on small screens */
                 width: 100%; /* Full width on small screens */
                 box-sizing: border-box;
+                max-width: 100%; /* Remove max-width constraint for smaller screens */
             }
 
             input[type="text"] {
