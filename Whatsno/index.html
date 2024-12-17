@@ -12,10 +12,21 @@ WhatsApp without contact
 <link rel="apple-touch-icon" href="favicon.png"> <!-- For Apple devices -->
     <link rel="manifest" href="/manifest.json">
 <link rel="icon" sizes="192x192" href="android-chrome-512x512.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#ffffff">
 
 
 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js">  
 </script> 
+    <script>
+        if ('serviceWorker' in navigator) {
+  navigator.serviceWorker
+    .register('/service-worker.js')
+    .then(() => console.log('Service Worker Registered'))
+    .catch((error) => console.error('Service Worker Registration Failed', error));
+}
+            </script>
+
 <script type="text/javascript">
 function WhatNo(){
     var action_src = "https://wa.me/" + document.getElementsByName("keywords")[0].value;
