@@ -29,6 +29,11 @@
             text-align: right; 
             margin-top: 0.5rem; 
         }
+		 @media print {
+            #print-button {
+                display: none;
+            }
+        }
 	</style>
 	<script>
         // Function to get query parameters from the URL
@@ -91,5 +96,8 @@
 	<ul>
 		<li>File for record and reference</li>
 	</ul>
+	<p>
+		 <button id="print-button" onclick="window.print()" style="display: block; margin: 20px auto; padding: 10px 20px; background-color: #3498db; color: white; border: none; border-radius: 5px; cursor: pointer;">Print</button>
+	</p>
 </body>
 </html>
