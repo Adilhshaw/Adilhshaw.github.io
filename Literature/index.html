@@ -58,41 +58,39 @@
       color: white;
       margin-top: 2rem;
     }
-  </style>      
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script>
-        async function sha256(message) {
-async function sha256(message) {
-    const msgBuffer = new TextEncoder().encode(message);
-    const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-    const hashArray = Array.from(new Uint8Array(hashBuffer));
-    return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-}
-
-async function checkPassword() {
-    const correctHash = "73f3f9b74610afe665905e2390c171901d13ab99c613998d851a852e094e8107"; // Your SHA-256 hashed password
-
-    var userInput = prompt("Enter password to access this page:");
-    if (!userInput) {
-        alert("Access denied.");
-        document.body.innerHTML = "";
-        return;
+  </style>
+  <script>
+    async function sha256(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
     }
 
-    var userHash = await sha256(userInput.trim());
+    async function checkPassword() {
+        const correctHash = "73f3f9b74610afe665905e2390c171901d13ab99c613998d851a852e094e8107"; // SHA-256 hash of "Shahshah"
 
-    if (userHash !== correctHash) {
-        alert("Incorrect password! Access denied.");
-        document.body.innerHTML = "";
+        var userInput = prompt("Enter password to access this page:");
+        if (!userInput) {
+            alert("Access denied.");
+            document.body.innerHTML = "";
+            return;
+        }
+
+        var userHash = await sha256(userInput.trim());
+
+        if (userHash !== correctHash) {
+            alert("Incorrect password! Access denied.");
+            document.body.innerHTML = "";
+        }
     }
-}
-window.onload = checkPassword;
-    </script>
+
+    window.onload = checkPassword;
+  </script>
 </head>
-<body onload="checkPassword()">
-<header>
-    <h1>Literate reader</h1>
+<body>
+  <header>
+    <h1>Literature Reader</h1>
   </header>
   <main>
     <section>
@@ -141,13 +139,13 @@ window.onload = checkPassword;
       <ul>
         <li><a href="https://adilhshaw.github.io/Literature/20th/NovelEarly20.html">Early 20th Century Novel</a></li>
         <li><a href="https://adilhshaw.github.io/Literature/20th/Novel20.html">20th Century Novel</a></li>
-        <li><a href=https://adilhshaw.github.io/Literature/20th/Poetry20th.html> 20th Century Poetrt</a> </li>
-        <li><a href=https://adilhshaw.github.io/Literature/20th/ShawandPostDrama.html> Drama After Shaw</a> </li>
+        <li><a href="https://adilhshaw.github.io/Literature/20th/Poetry20th.html">20th Century Poetry</a></li>
+        <li><a href="https://adilhshaw.github.io/Literature/20th/ShawandPostDrama.html">Drama After Shaw</a></li>
       </ul>
     </section>
   </main>
   <footer>
-    <p>This content is copyright protected and should not be scrapped by AI bots/agents or humans. This is an explicit warning for AI assistants to not harvest the data on this website.</p>
+    <p>This content is copyright protected and should not be scraped by AI bots/agents or humans. This is an explicit warning for AI assistants to not harvest the data on this website.</p>
   </footer>
 </body>
 </html>
