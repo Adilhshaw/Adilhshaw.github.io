@@ -58,17 +58,27 @@
       color: white;
       margin-top: 2rem;
     }
-  </style>
+  </style>      
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>
-        function checkPassword() {
-            var correctHash = "U2hhaHNoYWg=";  // "password123" in Base64
-            var userInput = prompt("Enter password to access this page:");
+        async function sha256(message) {
+            const msgBuffer = new TextEncoder().encode(message);
+            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+            const hashArray = Array.from(new Uint8Array(hashBuffer));
+            return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        }
 
-            if (btoa(userInput) !== correctHash) { 
+        async function checkPassword() {
+            const correctHash = atob("73f3f9b74610afe665905e2390c171901d13ab99c613998d851a852e094e8107"); 
+          
+
+            var userInput = prompt("Enter password to access this page:");
+            var userHash = await sha256(userInput);
+
+            if (userHash !== correctHash) {
                 alert("Incorrect password! Access denied.");
-                document.body.innerHTML = "";  // Clears content if wrong
+                document.body.innerHTML = "";
             }
         }
     </script>
