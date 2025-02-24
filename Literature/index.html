@@ -58,7 +58,22 @@
       color: white;
       margin-top: 2rem;
     }
-  </style> </head>
+  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        function checkPassword() {
+            var correctHash = "U2hhaHNoYWg=";  // "password123" in Base64
+            var userInput = prompt("Enter password to access this page:");
+
+            if (btoa(userInput) !== correctHash) { 
+                alert("Incorrect password! Access denied.");
+                document.body.innerHTML = "";  // Clears content if wrong
+            }
+        }
+    </script>
+</head>
+<body onload="checkPassword()">
 <header>
     <h1>Literate reader</h1>
   </header>
