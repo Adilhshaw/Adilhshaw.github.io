@@ -1,23 +1,33 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>BoomaRing Demo</title>
+  <title>BoomaRing™ – Device Ownership Recovery</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description" content="BoomaRing is a secure post-reset ownership verification system for mobile devices.">
+  <meta name="theme-color" content="#0b57ff">
+
+  <link rel="icon" href="logo.png">
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="phone">
-  <div class="screen">
-    <div class="topbar">
-      <button class="back-btn" onclick="goBack()">‹</button>
-      <img src="logo.png" class="top-logo">
+  <div class="phone">
+    <div class="screen">
+
+      <div class="topbar">
+        <button class="back-btn" onclick="goBack()">←</button>
+        <img src="logo.png" alt="BoomaRing" class="top-logo">
+      </div>
+
+      <div id="app"></div>
+
     </div>
-
-    <div id="app"></div>
   </div>
-</div>
 
-<script src="app.js"></script>
+  <script src="app.js"></script>
+
 </body>
 </html>
