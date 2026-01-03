@@ -5,7 +5,6 @@
 <title>Citation Converter</title>
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<link href="css/custom.css" rel="stylesheet">
 
 </head>
 <body class="bg-light">
@@ -37,11 +36,11 @@
 </div>
 </div>
 
-<div class="mb-3">
-<label class="form-label">Formatted Citation</label>
-<div id="output" class="border rounded p-3 bg-white"></div>
-<button id="copy" class="btn btn-outline-secondary mt-2">Copy Citation</button>
+<div id="output" class="border rounded p-3 bg-white mb-2"></div>
 
+<div class="d-flex gap-2">
+<button id="copyRich" class="btn btn-outline-secondary">Copy Formatted</button>
+<button id="copyText" class="btn btn-outline-secondary">Copy Plain Text</button>
 </div>
 
 </div>
@@ -53,7 +52,5 @@
 <script src="js/crossref.js"></script>
 <script src="js/csl-engine.js"></script>
 <script src="js/app.js"></script>
-
-
 </body>
 </html>
