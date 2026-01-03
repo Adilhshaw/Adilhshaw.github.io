@@ -30,12 +30,19 @@ document.addEventListener("DOMContentLoaded", () => {
     selection.addRange(range);
 
     try {
-      document.execCommand("copy");
-      selection.removeAllRanges();
-      alert("Citation copied with formatting");
-    } catch (err) {
-      console.error("Copy failed", err);
-    }
+  document.execCommand("copy");
+  selection.removeAllRanges();
+
+  const status = document.getElementById("copyStatus");
+  status.style.display = "inline";
+  setTimeout(() => status.style.display = "none", 1500);
+
+} catch (err) {
+  console.error("Copy failed", err);
+}
+
+    
+   
   });
 
 });
