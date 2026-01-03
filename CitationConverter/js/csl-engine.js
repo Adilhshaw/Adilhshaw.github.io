@@ -3,7 +3,7 @@
 window.formatCitation = async function (cslData, style) {
 
   const styleText = await fetch(`csl/${style}.csl`).then(r => r.text());
-  const locale = await fetch("https://unpkg.com/citeproc/locales-en-US.xml").then(r => r.text());
+  const locale = await fetch("csl/locales-en-US.xml").then(r => r.text());
 
   const sys = {
     retrieveLocale: () => locale,
