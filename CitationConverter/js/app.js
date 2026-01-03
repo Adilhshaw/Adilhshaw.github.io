@@ -1,6 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-  document.getElementById("convert").addEventListener("click", async () => {
+  const convertBtn = document.getElementById("convert");
+  const copyBtn = document.getElementById("copyRich");
+
+  convertBtn.addEventListener("click", async () => {
 
     const input = document.getElementById("input").value.trim();
     const style = document.getElementById("style").value;
@@ -19,16 +22,20 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  document.getElementById("copyText").addEventListener("click", () => {
-    const text = document.getElementById("output").innerText;
-    navigator.clipboard.writeText(text);
-  });
+  copyBtn.addEventListener("click", () => {
+    const range = document.createRange();
+    range.selectNodeContents(document.getElementById("output"));
+    const selection = window.getSelection();
+    selection.removeAllRanges();
+    selection.addRange(range);
 
-  document.getElementById("copyRich").addEventListener("click", async () => {
-    const html = document.getElementById("output").innerHTML;
-    const blob = new Blob([html], { type: "text/html" });
-    const data = [new ClipboardItem({ "text/html": blob })];
-    await navigator.clipboard.write(data);
+    try {
+      document.execCommand("copy");
+      selection.removeAllRanges();
+      alert("Citation copied with formatting");
+    } catch (err) {
+      console.error("Copy failed", err);
+    }
   });
 
 });
