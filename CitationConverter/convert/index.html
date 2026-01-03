@@ -1,0 +1,25 @@
+<hr class="my-5">
+
+<h4>Convert Existing Citation</h4>
+
+<div class="mb-3">
+  <label class="form-label">Paste citation (APA, MLA, Chicago, etc)</label>
+  <textarea id="convertInput" class="form-control" rows="4"></textarea>
+</div>
+
+<div class="row mb-3">
+  <div class="col">
+    <select id="convertStyle" class="form-select">
+      <option value="mla">MLA 9</option>
+      <option value="apa">APA 7</option>
+      <option value="chicago">Chicago 17</option>
+      <option value="harvard">Harvard</option>
+    </select>
+  </div>
+
+  <div class="col">
+    <button id="convertCitation" class="btn btn-success w-100">Convert Citation</button>
+  </div>
+</div>
+
+<div id="convertOutput" class="border rounded p-3 bg-white"></div>
