@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adil Hussain | Digital Business Card</title>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #121212;
+            --accent-color: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --text-main: #ffffff;
+            --text-dim: #b3b3b3;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: radial-gradient(circle at top, #2c2c2c 0%, #121212 100%);
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+
+        /* Profile Section */
+        .profile-img {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            border: 3px solid var(--accent-color);
+            margin-bottom: 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-family: 'EB Garamond', serif;
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .bio {
+            font-size: 0.95rem;
+            color: var(--text-dim);
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        /* Links Section */
+        .links-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .link-card {
+            background: var(--glass-bg);
+            border: 1px solid var(--glass-border);
+            padding: 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--text-main);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .link-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-3px);
+            border-color: var(--accent-color);
+        }
+
+        /* Emergency Highlight */
+        .emergency {
+            border: 1px solid rgba(255, 71, 71, 0.3);
+            background: rgba(255, 71, 71, 0.05);
+        }
+        
+        .emergency:hover {
+            border-color: #ff4747;
+            background: rgba(255, 71, 71, 0.1);
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <img src="https://ugc.production.linktr.ee/yGDbBKIATIifA82RbIE7_Nl1b6Kt6z5vz671k" alt="Adil Hussain" class="profile-img">
+        
+        <h1>Adil Hussain</h1>
+        <p class="bio">Writer & Researcher</p>
+
+        <div class="links-wrapper">
+            <a href="tel:+919797289770" class="link-card emergency">
+                🚨 Emergency Call: +91 9797289770
+            </a>
+
+            <a href="https://wa.me/919797289770?text=Hello%20Adil" target="_blank" class="link-card">
+                Message on WhatsApp
+            </a>
+
+            <a href="mailto:adilhshaw@gmail.com" class="link-card">
+                Email: adilhshaw@gmail.com
+            </a>
+
+            <a href="https://en.wikipedia.org/wiki/User:Adilalishah" target="_blank" class="link-card">
+                Wikipedia Profile
+            </a>
+
+            <a href="http://twitter.com/thatseharkhan" target="_blank" class="link-card">
+                Twitter / X
+            </a>
+
+            <a href="http://facebook.com/thatseharkhan" target="_blank" class="link-card">
+                Facebook
+            </a>
+        </div>
+
+        <footer>
+            © 2026 ADIL HUSSAIN
+        </footer>
+    </div>
+
+</body>
+</html>
