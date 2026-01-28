@@ -3,146 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adil Hussain | Digital Business Card</title>
-    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    
+    <title>Adil Hussain</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #121212;
-            --accent-color: #ffffff;
-            --glass-bg: rgba(255, 255, 255, 0.05);
-            --glass-border: rgba(255, 255, 255, 0.1);
-            --text-main: #ffffff;
-            --text-dim: #b3b3b3;
+            --btn-gradient: linear-gradient(135deg, #2d2d2d 0%, #000000 100%);
+            --btn-hover: linear-gradient(135deg, #505050 0%, #2d2d2d 100%);
+            --text-light: #ffffff;
+            --bg-main: #ffffff;
+            --container-padding: 24px;
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background: radial-gradient(circle at top, #2c2c2c 0%, #121212 100%);
-            color: var(--text-main);
+            background-color: var(--bg-main);
+            color: #000;
             font-family: 'Inter', sans-serif;
             display: flex;
             justify-content: center;
-            align-items: center;
             min-height: 100vh;
-            padding: 20px;
         }
 
-        .container {
+        .wrapper {
             width: 100%;
-            max-width: 450px;
-            text-align: center;
+            max-width: 600px; /* Limits width on desktop for readability */
+            padding: 40px var(--container-padding);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        /* Profile Section */
+        /* Profile Header */
         .profile-img {
-            width: 110px;
-            height: 110px;
+            width: 90px;
+            height: 90px;
             border-radius: 50%;
-            border: 3px solid var(--accent-color);
-            margin-bottom: 20px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+            background: #f0f0f0;
+            margin-bottom: 16px;
+            object-fit: cover;
         }
 
         h1 {
-            font-family: 'EB Garamond', serif;
-            font-size: 2.2rem;
+            font-size: 1.5rem;
             font-weight: 600;
+            letter-spacing: -0.5px;
             margin-bottom: 8px;
         }
 
-        .bio {
-            font-size: 0.95rem;
-            color: var(--text-dim);
-            margin-bottom: 30px;
-            line-height: 1.5;
+        .description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 40px;
+            text-align: center;
         }
 
-        /* Links Section */
-        .links-wrapper {
+        /* Full-Width Buttons */
+        .links-container {
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
         }
 
-        .link-card {
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
-            padding: 18px;
-            border-radius: 12px;
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 20px;
+            border-radius: 16px; /* Smooth rounded corners */
+            background: var(--btn-gradient);
+            color: var(--text-light);
             text-decoration: none;
-            color: var(--text-main);
+            text-align: center;
             font-weight: 500;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(10px);
+            font-size: 1rem;
+            transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        .link-card:hover {
-            background: rgba(255, 255, 255, 0.15);
-            transform: translateY(-3px);
-            border-color: var(--accent-color);
+        /* Desktop Hover & Mobile Active States */
+        @media (hover: hover) {
+            .btn:hover {
+                transform: scale(1.02);
+                background: var(--btn-hover);
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+            }
         }
 
-        /* Emergency Highlight */
-        .emergency {
-            border: 1px solid rgba(255, 71, 71, 0.3);
-            background: rgba(255, 71, 71, 0.05);
+        .btn:active {
+            transform: scale(0.98);
+            opacity: 0.9;
         }
-        
-        .emergency:hover {
-            border-color: #ff4747;
-            background: rgba(255, 71, 71, 0.1);
+
+        /* Sub-info for buttons (optional) */
+        .btn span {
+            display: block;
+            font-size: 0.75rem;
+            opacity: 0.7;
+            margin-top: 4px;
+            font-weight: 400;
         }
 
         footer {
-            margin-top: 40px;
-            font-size: 0.8rem;
-            color: var(--text-dim);
-            letter-spacing: 1px;
+            margin-top: auto;
+            padding-top: 50px;
+            font-size: 0.75rem;
+            color: #aaa;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="wrapper">
         <img src="https://ugc.production.linktr.ee/yGDbBKIATIifA82RbIE7_Nl1b6Kt6z5vz671k" alt="Adil Hussain" class="profile-img">
         
         <h1>Adil Hussain</h1>
-        <p class="bio">Writer & Researcher</p>
+        <p class="description">Contact & Social Profiles</p>
 
-        <div class="links-wrapper">
-            <a href="tel:+919797289770" class="link-card emergency">
-                🚨 Emergency Call: +91 9797289770
+        <div class="links-container">
+            <a href="tel:+919797289770" class="btn" style="background: linear-gradient(135deg, #d32f2f 0%, #9a0007 100%);">
+                Emergency Call
+                <span>+91 9797289770</span>
             </a>
 
-            <a href="https://wa.me/919797289770?text=Hello%20Adil" target="_blank" class="link-card">
-                Message on WhatsApp
+            <a href="https://wa.me/919797289770" target="_blank" class="btn">
+                WhatsApp
             </a>
 
-            <a href="mailto:adilhshaw@gmail.com" class="link-card">
-                Email: adilhshaw@gmail.com
+            <a href="mailto:adilhshaw@gmail.com" class="btn">
+                Email
+                <span>adilhshaw@gmail.com</span>
             </a>
 
-            <a href="https://en.wikipedia.org/wiki/User:Adilalishah" target="_blank" class="link-card">
-                Wikipedia Profile
+            <a href="https://en.wikipedia.org/wiki/User:Adilalishah" target="_blank" class="btn">
+                Wikipedia
             </a>
 
-            <a href="http://twitter.com/thatseharkhan" target="_blank" class="link-card">
+            <a href="http://twitter.com/thatseharkhan" target="_blank" class="btn">
                 Twitter / X
             </a>
 
-            <a href="http://facebook.com/thatseharkhan" target="_blank" class="link-card">
+            <a href="http://facebook.com/thatseharkhan" target="_blank" class="btn">
                 Facebook
             </a>
         </div>
 
         <footer>
-            © 2026 ADIL HUSSAIN
+            Adil Hussain • 2026
         </footer>
     </div>
 
