@@ -2,8 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Adil Hussain | Contact</title>
+    
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     
@@ -30,6 +35,21 @@
             display: flex;
             justify-content: center;
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Fullscreen Toggle Button */
+        #fs-toggle {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: rgba(0,0,0,0.05);
+            border: none;
+            padding: 8px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 100;
+            color: #666;
         }
 
         .wrapper {
@@ -48,7 +68,6 @@
             letter-spacing: -1px;
         }
 
-        /* Prominent H2 with Flashing Glow and Dotted Border */
         h2 {
             font-size: 1rem;
             font-weight: 700;
@@ -63,23 +82,13 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            /* Soft initial glow */
             text-shadow: 0 0 8px rgba(229, 57, 53, 0.3);
             animation: flashGlow 1.5s infinite alternate;
         }
 
-        /* Flash and Glow Animation */
         @keyframes flashGlow {
-            0% {
-                opacity: 1;
-                text-shadow: 0 0 5px rgba(229, 57, 53, 0.2);
-                box-shadow: inset 0 0 5px rgba(229, 57, 53, 0.1);
-            }
-            100% {
-                opacity: 0.7;
-                text-shadow: 0 0 15px rgba(229, 57, 53, 0.6);
-                box-shadow: inset 0 0 10px rgba(229, 57, 53, 0.05);
-            }
+            0% { opacity: 1; text-shadow: 0 0 5px rgba(229, 57, 53, 0.2); }
+            100% { opacity: 0.7; text-shadow: 0 0 15px rgba(229, 57, 53, 0.6); }
         }
 
         .links-container {
@@ -103,39 +112,19 @@
             font-weight: 600;
             font-size: 1.1rem;
             transition: all 0.2s ease;
-            border: none;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .btn i {
-            font-size: 1.4rem;
-            margin-bottom: 4px;
-        }
+        .btn i { font-size: 1.4rem; margin-bottom: 4px; }
 
         .btn.emergency-btn {
             background: var(--emergency-gradient);
             margin-bottom: 10px;
         }
 
-        @media (hover: hover) {
-            .btn:hover {
-                transform: translateY(-2px);
-                box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-                filter: brightness(1.2);
-            }
-        }
+        .btn:active { transform: scale(0.97); filter: brightness(0.9); }
 
-        .btn:active {
-            transform: scale(0.97);
-            filter: brightness(0.9);
-        }
-
-        .btn span {
-            font-size: 0.8rem;
-            opacity: 0.8;
-            margin-top: 2px;
-            font-weight: 400;
-        }
+        .btn span { font-size: 0.8rem; opacity: 0.8; margin-top: 2px; font-weight: 400; }
 
         footer {
             margin-top: 60px;
@@ -147,6 +136,10 @@
     </style>
 </head>
 <body>
+
+    <button id="fs-toggle" title="Toggle Fullscreen">
+        <i class="bi bi-arrows-fullscreen"></i>
+    </button>
 
     <div class="wrapper">
         <h1>Adil Hussain</h1>
@@ -195,5 +188,23 @@
         </footer>
     </div>
 
+    <script>
+        const fsToggle = document.getElementById('fs-toggle');
+        
+        fsToggle.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen().catch(err => {
+                    alert(`Error attempting to enable full-screen mode: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+
+        // Hide toggle button if fullscreen is not supported
+        if (!document.fullscreenEnabled) {
+            fsToggle.style.display = 'none';
+        }
+    </script>
 </body>
 </html>
