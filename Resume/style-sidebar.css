@@ -1,27 +1,32 @@
-@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
 
 
-/* PAGE SETUP */
+/* ===============================
+   PAGE FOUNDATION
+================================ */
 
 body {
+margin: 0;
 font-family: "Source Sans 3", sans-serif;
-font-size: 17px;
-line-height: 1.75;
-max-width: 920px;
-margin: auto;
-padding: 40px;
-color: #1e1e1e;
-background: #ffffff;
+font-size: 17.5px;
+line-height: 1.8;
+color: #1c1c1c;
+background: #fafafa;
 }
 
 
-/* HEADER WITH PHOTO */
+/* ===============================
+   HEADER STRIP
+================================ */
 
 .header {
 display: flex;
 align-items: center;
 gap: 28px;
-margin-bottom: 36px;
+padding: 36px 64px;
+background: linear-gradient(135deg, #1e2d3a, #2c4f73);
+color: white;
+border-bottom: 6px solid #b8c7d9;
 }
 
 
@@ -29,63 +34,103 @@ margin-bottom: 36px;
 
 .header::before {
 content: "";
-width: 120px;
-height: 120px;
+width: 130px;
+height: 130px;
 border-radius: 50%;
 background-image: url("myphoto.jpg");
 background-size: cover;
 background-position: center;
-flex-shrink: 0;
+border: 4px solid rgba(255,255,255,0.35);
 }
 
 
 /* NAME */
 
 h1 {
-font-family: "Cormorant Garamond", serif;
+font-family: "Playfair Display", serif;
 font-size: 44px;
-margin-bottom: 6px;
-color: #111;
+margin: 0;
+letter-spacing: 0.6px;
 }
 
 
 /* CONTACT BLOCK */
 
 .contact {
-font-size: 16px;
-color: #444;
-line-height: 1.6;
+font-size: 15.5px;
+color: #e4edf6;
+}
+
+.header a {
+color: white;
+text-decoration: none;
+}
+
+.header a:hover {
+text-decoration: underline;
 }
 
 
-/* SECTION HEADINGS */
+/* ===============================
+   MAIN CONTENT PANEL
+================================ */
+
+section {
+max-width: 880px;
+margin: 30px auto;
+padding: 34px 48px;
+background: white;
+border-radius: 6px;
+box-shadow: 0 6px 14px rgba(0,0,0,0.05);
+}
+
+
+/* ===============================
+   SECTION HEADINGS
+================================ */
 
 h2 {
-font-family: "Cormorant Garamond", serif;
-font-size: 24px;
-border-left: 5px solid #2c4f73;
-padding-left: 12px;
-margin-top: 42px;
+font-family: "Playfair Display", serif;
+font-size: 28px;
 margin-bottom: 14px;
+color: #2c4f73;
+position: relative;
+}
+
+h2::after {
+content: "";
+display: block;
+width: 70px;
+height: 2px;
+background: #2c4f73;
+margin-top: 6px;
 }
 
 
-/* PARAGRAPHS */
+/* ===============================
+   TEXT ELEMENTS
+================================ */
 
 p {
 margin-bottom: 14px;
 }
 
 
-/* LISTS */
-
 ul,
 ol {
-padding-left: 22px;
+padding-left: 24px;
 }
+
 
 li {
 margin-bottom: 10px;
+}
+
+
+/* EMPHASIS */
+
+em {
+font-style: italic;
 }
 
 
@@ -102,39 +147,44 @@ text-decoration: underline;
 }
 
 
-/* EMPHASIS */
+/* ===============================
+   PUBLICATION DOI LINKS
+================================ */
 
-em {
-font-style: italic;
+ol li a {
+font-size: 0.92em;
+color: #5a6f86;
 }
 
 
-/* MOBILE VERSION */
+/* ===============================
+   MOBILE VERSION
+================================ */
 
 @media (max-width: 768px) {
 
 .header {
 flex-direction: column;
 align-items: flex-start;
+padding: 26px;
 }
 
-body {
-padding: 24px;
-font-size: 16px;
+section {
+margin: 20px;
+padding: 26px;
 }
 
 h1 {
 font-size: 34px;
 }
 
-h2 {
-font-size: 22px;
-}
-
 }
 
 
-/* PRINT SETTINGS */
+
+/* ===============================
+   PRINT VERSION (PREMIUM A4 STYLE)
+================================ */
 
 @page {
 size: A4;
@@ -144,31 +194,73 @@ margin: 2cm;
 
 @media print {
 
+
 body {
-font-family: "Cormorant Garamond", serif;
+font-family: "Playfair Display", serif;
 font-size: 12pt;
 line-height: 1.5;
-max-width: 100%;
-padding: 0;
-margin: 0;
-color: #000;
-background: #fff;
+background: white;
+color: black;
 }
 
 
-/* KEEP PHOTO IN PRINT */
+/* HEADER PRINT STYLE */
+
+.header {
+background: none;
+border-bottom: 3px solid #2c4f73;
+padding: 0 0 14px 0;
+margin-bottom: 18px;
+}
+
+
+/* KEEP PHOTO */
 
 .header::before {
-width: 90px;
-height: 90px;
+width: 95px;
+height: 95px;
+border: none;
+}
+
+
+/* NAME */
+
+h1 {
+font-size: 30pt;
+color: black;
+}
+
+
+/* CONTACT */
+
+.contact {
+color: black;
+font-size: 11pt;
+}
+
+
+/* REMOVE CARD SHADOWS */
+
+section {
+box-shadow: none;
+border-radius: 0;
+margin: 0 0 12px 0;
+padding: 0;
+border-bottom: 1px solid #bbb;
+}
+
+
+/* REMOVE LAST BORDER */
+
+section:last-of-type {
+border-bottom: none;
 }
 
 
 /* REMOVE DECORATIVE RULE */
 
-h2 {
-border-left: none;
-padding-left: 0;
+h2::after {
+display: none;
 }
 
 
@@ -188,18 +280,19 @@ page-break-inside: avoid;
 }
 
 
-/* TIGHTER LIST SPACING */
+/* COMPACT LISTS */
 
 li {
 margin-bottom: 6px;
 }
 
 
-/* CLEAN LINK PRINTING */
+/* PRINT LINKS CLEANLY */
 
 a {
 color: black;
 text-decoration: none;
 }
+
 
 }
