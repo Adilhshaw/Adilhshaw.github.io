@@ -1,0 +1,256 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+
+/* PAGE LAYOUT */
+
+body {
+margin: 0;
+font-family: "Inter", sans-serif;
+font-size: 17px;
+line-height: 1.75;
+color: #222;
+background: #ffffff;
+}
+
+
+/* TOP NAVBAR HEADER */
+
+.header {
+display: flex;
+align-items: center;
+gap: 26px;
+background: #1e2d3a;
+color: white;
+padding: 32px 60px;
+border-bottom: 4px solid #2c4f73;
+}
+
+
+/* PROFILE PHOTO */
+
+.header::before {
+content: "";
+width: 120px;
+height: 120px;
+border-radius: 50%;
+background-image: url("myphoto.jpg");
+background-size: cover;
+background-position: center;
+flex-shrink: 0;
+border: 3px solid rgba(255,255,255,0.25);
+}
+
+
+/* NAME */
+
+h1 {
+font-family: "Libre Baskerville", serif;
+font-size: 40px;
+margin: 0 0 6px 0;
+color: white;
+}
+
+
+/* CONTACT BLOCK */
+
+.contact {
+font-size: 15px;
+line-height: 1.6;
+color: #d7e2ea;
+}
+
+
+/* MAIN CONTENT COLUMN */
+
+section {
+max-width: 860px;
+margin: auto;
+padding: 32px 40px;
+}
+
+
+/* SECTION HEADINGS */
+
+h2 {
+font-family: "Libre Baskerville", serif;
+font-size: 26px;
+margin-top: 28px;
+margin-bottom: 14px;
+position: relative;
+color: #1e2d3a;
+}
+
+h2::after {
+content: "";
+display: block;
+width: 60px;
+height: 2px;
+background: #2c4f73;
+margin-top: 6px;
+}
+
+
+/* TEXT */
+
+p {
+margin-bottom: 14px;
+}
+
+
+/* LISTS */
+
+ul,
+ol {
+padding-left: 22px;
+}
+
+li {
+margin-bottom: 10px;
+}
+
+
+/* LINKS */
+
+a {
+color: #2c4f73;
+text-decoration: none;
+word-break: break-word;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+
+/* EMPHASIS */
+
+em {
+font-style: italic;
+}
+
+
+/* MOBILE VERSION */
+
+@media (max-width: 768px) {
+
+.header {
+flex-direction: column;
+align-items: flex-start;
+padding: 24px;
+}
+
+section {
+padding: 28px;
+}
+
+h1 {
+font-size: 32px;
+}
+
+}
+
+
+/* PRINT VERSION (A4 OPTIMISED) */
+
+@page {
+size: A4;
+margin: 2cm;
+}
+
+
+@media print {
+
+
+/* SWITCH TO PRINT TYPOGRAPHY */
+
+body {
+font-family: "Libre Baskerville", serif;
+font-size: 12pt;
+line-height: 1.5;
+color: black;
+background: white;
+}
+
+
+/* HEADER BECOMES SIMPLE TITLE BLOCK */
+
+.header {
+background: none;
+color: black;
+border-bottom: none;
+padding: 0;
+margin-bottom: 18px;
+}
+
+
+/* KEEP PHOTO IN PRINT */
+
+.header::before {
+width: 90px;
+height: 90px;
+border: none;
+}
+
+
+/* NAME PRINT SIZE */
+
+h1 {
+font-size: 28pt;
+color: black;
+}
+
+
+/* CONTACT PRINT STYLE */
+
+.contact {
+color: black;
+font-size: 11pt;
+}
+
+
+/* REMOVE DECORATIVE RULES */
+
+h2::after {
+display: none;
+}
+
+
+/* PREVENT PAGE BREAK ISSUES */
+
+section {
+page-break-inside: avoid;
+}
+
+h2 {
+page-break-after: avoid;
+}
+
+ul,
+ol {
+page-break-inside: avoid;
+}
+
+
+/* TIGHTER PUBLICATION SPACING */
+
+li {
+margin-bottom: 6px;
+}
+
+
+/* CLEAN PRINT LINKS */
+
+a {
+color: black;
+text-decoration: none;
+}
+
+
+/* NORMALISE CONTENT WIDTH */
+
+section {
+padding: 0;
+max-width: 100%;
+}
+
+}
