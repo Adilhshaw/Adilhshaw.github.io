@@ -1,46 +1,70 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@300;400;600&display=swap');
 
+
+/* PAGE SETUP */
+
 body {
 font-family: "Source Sans 3", sans-serif;
+font-size: 17px;
+line-height: 1.75;
 max-width: 900px;
 margin: auto;
-padding: 50px;
-line-height: 1.75;
+padding: 40px;
 color: #1e1e1e;
 background: #ffffff;
 }
+
+
+/* HEADER BLOCK */
 
 .header {
 margin-bottom: 40px;
 }
 
+
+/* NAME */
+
 h1 {
 font-family: "Cormorant Garamond", serif;
-font-size: 48px;
+font-size: 44px;
 letter-spacing: 1px;
 margin-bottom: 6px;
 color: #111;
 }
 
+
+/* SECTION HEADINGS */
+
 h2 {
 font-family: "Cormorant Garamond", serif;
-font-size: 26px;
+font-size: 24px;
 border-left: 5px solid #2c4f73;
 padding-left: 12px;
 margin-top: 45px;
 margin-bottom: 14px;
 }
 
+
+/* CONTACT INFO */
+
 .contact {
-font-size: 15px;
+font-size: 16px;
 color: #444;
+line-height: 1.6;
 }
+
+
+/* PARAGRAPHS */
 
 p {
 margin-bottom: 14px;
 }
 
-ul, ol {
+
+/* LISTS */
+
+ul,
+ol {
 padding-left: 22px;
 }
 
@@ -48,23 +72,34 @@ li {
 margin-bottom: 10px;
 }
 
+
+/* ITALICS (BOOKS / JOURNALS) */
+
 em {
 font-style: italic;
 }
 
+
+/* LINKS */
+
 a {
 color: #2c4f73;
 text-decoration: none;
+word-break: break-word;
 }
 
 a:hover {
 text-decoration: underline;
 }
 
+
+/* MOBILE VERSION */
+
 @media (max-width: 768px) {
 
 body {
 padding: 24px;
+font-size: 16px;
 }
 
 h1 {
@@ -73,6 +108,76 @@ font-size: 34px;
 
 h2 {
 font-size: 22px;
+}
+
+}
+
+
+/* PRINT SETTINGS (A4 OPTIMISED) */
+
+@page {
+size: A4;
+margin: 2cm;
+}
+
+
+@media print {
+
+body {
+font-family: "Cormorant Garamond", serif;
+font-size: 12pt;
+line-height: 1.5;
+max-width: 100%;
+padding: 0;
+margin: 0;
+color: #000;
+background: #fff;
+}
+
+
+/* REMOVE DECORATIVE SIDEBAR RULE */
+
+h2 {
+border-left: none;
+padding-left: 0;
+}
+
+
+/* PREVENT AWKWARD PAGE BREAKS */
+
+section {
+page-break-inside: avoid;
+}
+
+h2 {
+page-break-after: avoid;
+}
+
+ul,
+ol {
+page-break-inside: avoid;
+}
+
+
+/* TIGHTER PUBLICATION LIST SPACING FOR PRINT */
+
+li {
+margin-bottom: 6px;
+}
+
+
+/* PRINT LINKS CLEANLY */
+
+a {
+color: black;
+text-decoration: none;
+}
+
+
+/* REMOVE EXTRA WHITE SPACE */
+
+.header {
+margin-bottom: 20px;
 }
 
 }
