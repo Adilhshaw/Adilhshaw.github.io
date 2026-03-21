@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap');
 
 
-/* PAGE BASE */
+/* ===============================
+   GLOBAL PAGE SETTINGS
+================================ */
 
 body {
 margin: 0;
@@ -13,12 +15,14 @@ background: #ffffff;
 }
 
 
-/* TOP HEADER BAR */
+/* ===============================
+   HEADER (TOP NAVBAR STYLE)
+================================ */
 
 .header {
 display: flex;
 align-items: center;
-gap: 26px;
+gap: 24px;
 background: #1e2d3a;
 color: white;
 padding: 32px 60px;
@@ -48,7 +52,7 @@ font-family: "Libre Baskerville", serif;
 font-size: 40px;
 margin: 0 0 6px 0;
 color: white;
-letter-spacing: 0.5px;
+letter-spacing: 0.4px;
 }
 
 
@@ -61,10 +65,10 @@ color: #e4edf4;
 }
 
 
-/* WHITE LINKS INSIDE NAVBAR */
+/* WHITE LINKS INSIDE HEADER */
 
 .header a {
-color: #ffffff;
+color: white;
 text-decoration: none;
 }
 
@@ -73,13 +77,15 @@ text-decoration: underline;
 }
 
 
-/* MAIN CONTENT COLUMN */
+/* ===============================
+   MAIN CONTENT COLUMN
+================================ */
 
 section {
 max-width: 860px;
 margin: auto;
-padding: 34px 40px;
-border-bottom: 1px solid #e6e6e6;
+padding: 32px 40px;
+border-bottom: 1px solid #e5e5e5;
 }
 
 
@@ -90,18 +96,21 @@ border-bottom: none;
 }
 
 
-/* SECTION HEADINGS */
+/* ===============================
+   SECTION HEADINGS
+================================ */
 
 h2 {
 font-family: "Libre Baskerville", serif;
 font-size: 26px;
-margin-top: 20px;
-margin-bottom: 14px;
+margin-top: 18px;
+margin-bottom: 12px;
 color: #1e2d3a;
+position: relative;
 }
 
 
-/* SUBTLE HEADING RULE */
+/* SUBTLE HEADING ACCENT RULE */
 
 h2::after {
 content: "";
@@ -113,35 +122,23 @@ margin-top: 6px;
 }
 
 
-/* PARAGRAPHS */
+/* ===============================
+   TEXT ELEMENTS
+================================ */
 
 p {
 margin-bottom: 14px;
 }
 
 
-/* LISTS */
-
 ul,
 ol {
 padding-left: 22px;
 }
 
+
 li {
 margin-bottom: 10px;
-}
-
-
-/* LINKS IN BODY */
-
-a {
-color: #2c4f73;
-text-decoration: none;
-word-break: break-word;
-}
-
-a:hover {
-text-decoration: underline;
 }
 
 
@@ -152,7 +149,23 @@ font-style: italic;
 }
 
 
-/* MOBILE VERSION */
+/* BODY LINKS */
+
+a {
+color: #2c4f73;
+text-decoration: none;
+word-break: break-word;
+}
+
+
+a:hover {
+text-decoration: underline;
+}
+
+
+/* ===============================
+   MOBILE RESPONSIVE VERSION
+================================ */
 
 @media (max-width: 768px) {
 
@@ -162,19 +175,20 @@ align-items: flex-start;
 padding: 26px;
 }
 
-section {
-padding: 26px;
-}
-
 h1 {
 font-size: 32px;
 }
 
+section {
+padding: 26px;
+}
+
 }
 
 
-
-/* PRINT VERSION — STYLED ACADEMIC OUTPUT */
+/* ===============================
+   PRINT SETTINGS (A4 OPTIMISED)
+================================ */
 
 @page {
 size: A4;
@@ -191,22 +205,22 @@ body {
 font-family: "Libre Baskerville", serif;
 font-size: 12pt;
 line-height: 1.5;
-color: #000;
-background: #fff;
+color: black;
+background: white;
 }
 
 
-/* HEADER SIMPLIFIED BUT STYLISH */
+/* HEADER SIMPLIFIED FOR PRINT */
 
 .header {
 background: none;
-border-bottom: 2px solid #000;
+border-bottom: 2px solid black;
 padding: 0 0 12px 0;
 margin-bottom: 18px;
 }
 
 
-/* KEEP PHOTO IN PRINT */
+/* KEEP PHOTO VISIBLE */
 
 .header::before {
 width: 95px;
@@ -215,24 +229,23 @@ border: none;
 }
 
 
-/* NAME PRINT STYLE */
+/* NAME SIZE FOR PRINT */
 
 h1 {
 font-size: 28pt;
-color: #000;
-letter-spacing: 0.5px;
+color: black;
 }
 
 
-/* CONTACT PRINT STYLE */
+/* CONTACT BLOCK */
 
 .contact {
-color: #000;
+color: black;
 font-size: 11pt;
 }
 
 
-/* SECTION DIVIDERS FOR PRINT */
+/* SECTION DIVIDERS */
 
 section {
 padding: 0;
@@ -240,8 +253,6 @@ margin-bottom: 12px;
 border-bottom: 1px solid #bbb;
 }
 
-
-/* REMOVE FINAL BORDER */
 
 section:last-of-type {
 border-bottom: none;
@@ -271,22 +282,22 @@ page-break-inside: avoid;
 }
 
 
-/* COMPACT LISTS FOR PRINT */
+/* COMPACT LIST SPACING */
 
 li {
 margin-bottom: 6px;
 }
 
 
-/* CLEAN DOI LINKS FOR PAPER */
+/* PRINT LINKS CLEANLY */
 
 a {
-color: #000;
+color: black;
 text-decoration: none;
 }
 
 
-/* FULL WIDTH CONTENT FOR PRINT */
+/* FULL WIDTH CONTENT */
 
 section {
 max-width: 100%;
