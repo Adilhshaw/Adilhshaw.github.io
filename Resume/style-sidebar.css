@@ -1,0 +1,146 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Inter:wght@300;400;600&display=swap');
+
+/* PAGE STRUCTURE */
+
+body {
+margin: 0;
+display: grid;
+grid-template-columns: 320px 1fr;
+min-height: 100vh;
+font-family: "Inter", sans-serif;
+color: #222;
+background: #ffffff;
+}
+
+
+/* SIDEBAR */
+
+.header {
+background: #1e2d3a;
+color: white;
+padding: 40px 28px;
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+}
+
+
+/* PROFILE PHOTO */
+
+.header::before {
+content: "";
+width: 160px;
+height: 160px;
+border-radius: 50%;
+background-image: url("myphoto.jpg");
+background-size: cover;
+background-position: center;
+margin-bottom: 25px;
+border: 4px solid #ffffff33;
+}
+
+
+/* NAME */
+
+h1 {
+font-family: "Libre Baskerville", serif;
+font-size: 34px;
+margin: 0 0 12px 0;
+color: white;
+}
+
+
+/* CONTACT */
+
+.contact {
+font-size: 14px;
+line-height: 1.7;
+color: #d7e2ea;
+}
+
+
+/* MAIN CONTENT AREA */
+
+section {
+padding: 48px 60px;
+max-width: 900px;
+}
+
+
+/* SECTION HEADINGS */
+
+h2 {
+font-family: "Libre Baskerville", serif;
+font-size: 26px;
+margin-top: 10px;
+margin-bottom: 18px;
+position: relative;
+}
+
+h2::after {
+content: "";
+display: block;
+width: 60px;
+height: 2px;
+background: #1e2d3a;
+margin-top: 6px;
+}
+
+
+/* PARAGRAPHS */
+
+p {
+line-height: 1.75;
+margin-bottom: 16px;
+}
+
+
+/* LISTS */
+
+ul,
+ol {
+padding-left: 22px;
+}
+
+li {
+margin-bottom: 10px;
+}
+
+
+/* EMPHASIS */
+
+em {
+font-style: italic;
+}
+
+
+/* LINKS */
+
+a {
+color: #1e2d3a;
+text-decoration: none;
+}
+
+a:hover {
+text-decoration: underline;
+}
+
+
+/* MOBILE VERSION */
+
+@media (max-width: 900px) {
+
+body {
+grid-template-columns: 1fr;
+}
+
+.header {
+align-items: center;
+text-align: center;
+}
+
+section {
+padding: 32px;
+}
+
+}
