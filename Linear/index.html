@@ -16,14 +16,13 @@
 
 <h1>Linear Timeline Calendar Generator</h1>
 
-<p class="subtitle">
-Generate a continuous printable year timeline across multiple A4 pages.
-Print landscape and stitch pages along the short edge.
+<p>
+Generate a stitched multi-page A4 landscape wall timeline calendar
 </p>
 
 <div class="toolbar">
 
-<label for="yearInput">Year</label>
+<label>Year</label>
 
 <input
 type="number"
@@ -34,20 +33,13 @@ max="2100"
 >
 
 <label class="toggle">
-
 <input type="checkbox" id="holidayToggle">
-
-<span>Show Indian national holidays</span>
-
+Show Indian holidays
 </label>
 
-<button onclick="generateCalendar()">
-Generate calendar
-</button>
+<button onclick="generateCalendar()">Generate</button>
 
-<button onclick="window.print()">
-Export PDF
-</button>
+<button onclick="window.print()">Export PDF</button>
 
 </div>
 
@@ -56,37 +48,9 @@ Export PDF
 
 <main>
 
-<section class="instructions">
-
-<h2>How to print correctly</h2>
-
-<ol>
-<li>Click Generate calendar</li>
-<li>Select Export PDF</li>
-<li>Choose Landscape orientation</li>
-<li>Print at 100% scale</li>
-<li>Tape pages together along the short edge</li>
-</ol>
-
-</section>
-
-
-<section id="calendarContainerWrapper">
-
 <div id="calendarContainer"></div>
 
-</section>
-
 </main>
-
-
-<footer>
-
-<p>
-Continuous linear academic-style wall timeline generator
-</p>
-
-</footer>
 
 
 <script src="script.js"></script>
