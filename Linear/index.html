@@ -17,7 +17,7 @@
 <h1>Linear Timeline Calendar Generator</h1>
 
 <p>
-Generate a stitched multi-page A4 landscape wall timeline calendar
+Print landscape · scale 100% · stitch along short edges
 </p>
 
 <div class="toolbar">
@@ -32,26 +32,28 @@ min="1900"
 max="2100"
 >
 
-<label class="toggle">
+<label>
 <input type="checkbox" id="holidayToggle">
 Show Indian holidays
 </label>
 
-<button onclick="generateCalendar()">Generate</button>
+<button onclick="generateCalendar()">
+Generate calendar
+</button>
 
-<button onclick="window.print()">Export PDF</button>
+<button onclick="window.print()">
+Export PDF
+</button>
 
 </div>
 
 </header>
-
 
 <main>
 
 <div id="calendarContainer"></div>
 
 </main>
-
 
 <script src="script.js"></script>
 
