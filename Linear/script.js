@@ -1,52 +1,76 @@
+const indianHolidays = {
+"01-26":"Republic Day",
+"08-15":"Independence Day",
+"10-02":"Gandhi Jayanti",
+"12-25":"Christmas"
+};
+
 function generateCalendar(){
 
 const container = document.getElementById("calendarContainer");
-const year = parseInt(document.getElementById("yearInput").value);
 
-container.innerHTML = "";
+container.innerHTML="";
 
-const months = [
+const year=parseInt(document.getElementById("yearInput").value);
+
+const showHolidays=document.getElementById("holidayToggle").checked;
+
+const months=[
 "January","February","March","April",
 "May","June","July","August",
 "September","October","November","December"
 ];
 
-const timeline = document.createElement("div");
-timeline.className = "timeline";
+let zigzag=false;
 
-for(let m=0; m<12; m++){
+for(let m=0;m<12;m++){
 
-let monthRow = document.createElement("div");
-monthRow.className = "month-row";
+let monthRow=document.createElement("div");
 
-let monthLabel = document.createElement("div");
-monthLabel.className = "month-label";
-monthLabel.textContent = months[m] + " " + year;
+monthRow.className="month-row "+(zigzag?"right":"left");
+
+zigzag=!zigzag;
+
+let monthLabel=document.createElement("div");
+
+monthLabel.className="month-label";
+
+monthLabel.textContent=months[m]+" "+year;
 
 monthRow.appendChild(monthLabel);
 
-let spine = document.createElement("div");
-spine.className = "spine";
+let spine=document.createElement("div");
 
-let daysInMonth = new Date(year, m+1, 0).getDate();
+spine.className="spine";
 
-for(let d=1; d<=daysInMonth; d++){
+let days=new Date(year,m+1,0).getDate();
 
-let day = document.createElement("div");
-day.className = "day";
+for(let d=1;d<=days;d++){
 
-if(d===1){
-day.classList.add("month-start");
-}
+let day=document.createElement("div");
 
-let weekday = new Date(year, m, d).getDay();
+day.className="day";
 
-if(weekday===0 || weekday===6){
+if(d===1) day.classList.add("month-start");
+
+let weekday=new Date(year,m,d).getDay();
+
+if(weekday===0||weekday===6)
 day.classList.add("weekend");
-}
 
-let label = document.createElement("span");
-label.textContent = d;
+let dateKey=
+String(m+1).padStart(2,"0")+"-"+
+String(d).padStart(2,"0");
+
+if(showHolidays && indianHolidays[dateKey])
+day.classList.add("holiday");
+
+if(d===1 && m!==0)
+day.classList.add("transition");
+
+let label=document.createElement("span");
+
+label.textContent=d;
 
 day.appendChild(label);
 
@@ -54,11 +78,47 @@ spine.appendChild(day);
 
 }
 
-monthRow.appendChild(spine);
-timeline.appendChild(monthRow);
+/* page guide every ~90 days */
+
+if(m%3===0 && m!==0){
+
+let guide=document.createElement("div");
+
+guide.className="page-guide";
+
+spine.appendChild(guide);
 
 }
 
-container.appendChild(timeline);
+monthRow.appendChild(spine);
+
+container.appendChild(monthRow);
+
+}
+
+}
+
+
+/* SVG export */
+
+function exportSVG(){
+
+const calendar=document.getElementById("calendarContainer");
+
+let serializer=new XMLSerializer();
+
+let source=serializer.serializeToString(calendar);
+
+let blob=new Blob([source],{type:"image/svg+xml;charset=utf-8"});
+
+let url=URL.createObjectURL(blob);
+
+let link=document.createElement("a");
+
+link.href=url;
+
+link.download="linear-calendar.svg";
+
+link.click();
 
 }
