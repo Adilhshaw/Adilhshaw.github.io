@@ -21,26 +21,26 @@ const months=[
 "September","October","November","December"
 ];
 
+const DAY_WIDTH=7;      // mm per day
+const PRINT_WIDTH=257; // usable width after margins
+
 let page=createPage();
 
 container.appendChild(page);
 
 let spine=page.querySelector(".spine");
 
-let spaceUsed=0;
-
-const DAY_WIDTH=8;
-const PAGE_WIDTH=260; // usable width inside margins
+let usedWidth=0;
 
 for(let m=0;m<12;m++){
 
 let days=new Date(year,m+1,0).getDate();
 
-let monthLabelPlaced=false;
+let labelPlaced=false;
 
 for(let d=1;d<=days;d++){
 
-if(spaceUsed+DAY_WIDTH>PAGE_WIDTH){
+if(usedWidth+DAY_WIDTH>PRINT_WIDTH){
 
 page=createPage();
 
@@ -48,9 +48,9 @@ container.appendChild(page);
 
 spine=page.querySelector(".spine");
 
-spaceUsed=0;
+usedWidth=0;
 
-monthLabelPlaced=false;
+labelPlaced=false;
 
 }
 
@@ -58,9 +58,11 @@ let day=document.createElement("div");
 
 day.className="day";
 
-if(d===1) day.classList.add("month-start");
+if(d===1)
+day.classList.add("month-start");
 
-if(d===1 && m!==0) day.classList.add("transition");
+if(d===1 && m!==0)
+day.classList.add("transition");
 
 let weekday=new Date(year,m,d).getDay();
 
@@ -84,32 +86,29 @@ spine.appendChild(day);
 
 /* place month label */
 
-if(!monthLabelPlaced){
+if(!labelPlaced){
 
-let monthName=document.createElement("div");
+let monthLabel=document.createElement("div");
 
-monthName.className="month-label";
+monthLabel.className="month-label";
 
-monthName.style.left=(10+spaceUsed)+"mm";
+monthLabel.style.left=(20+usedWidth)+"mm";
 
-monthName.textContent=months[m]+" "+year;
+monthLabel.textContent=months[m]+" "+year;
 
-page.appendChild(monthName);
+page.appendChild(monthLabel);
 
-monthLabelPlaced=true;
-
-}
-
-spaceUsed+=DAY_WIDTH;
+labelPlaced=true;
 
 }
 
-}
+usedWidth+=DAY_WIDTH;
 
 }
 
+}
 
-/* create page */
+}
 
 function createPage(){
 
