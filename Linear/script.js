@@ -11,12 +11,6 @@ const container=document.getElementById("calendarContainer");
 
 container.innerHTML="";
 
-const strip=document.createElement("div");
-
-strip.id="calendarStrip";
-
-container.appendChild(strip);
-
 const year=parseInt(document.getElementById("yearInput").value);
 
 const showHolidays=document.getElementById("holidayToggle").checked;
@@ -27,18 +21,16 @@ const months=[
 "September","October","November","December"
 ];
 
-let currentPage=createPage();
+let page=createPage();
 
-strip.appendChild(currentPage);
+container.appendChild(page);
 
-let spine=currentPage.querySelector(".spine");
+let spine=page.querySelector(".spine");
 
 let spaceUsed=0;
 
-/* each day = 8mm */
-
 const DAY_WIDTH=8;
-const PAGE_WIDTH=297;
+const PAGE_WIDTH=260; // usable width inside margins
 
 for(let m=0;m<12;m++){
 
@@ -50,11 +42,11 @@ for(let d=1;d<=days;d++){
 
 if(spaceUsed+DAY_WIDTH>PAGE_WIDTH){
 
-currentPage=createPage();
+page=createPage();
 
-strip.appendChild(currentPage);
+container.appendChild(page);
 
-spine=currentPage.querySelector(".spine");
+spine=page.querySelector(".spine");
 
 spaceUsed=0;
 
@@ -66,11 +58,9 @@ let day=document.createElement("div");
 
 day.className="day";
 
-if(d===1)
-day.classList.add("month-start");
+if(d===1) day.classList.add("month-start");
 
-if(d===1 && m!==0)
-day.classList.add("transition");
+if(d===1 && m!==0) day.classList.add("transition");
 
 let weekday=new Date(year,m,d).getDay();
 
@@ -92,7 +82,7 @@ day.appendChild(label);
 
 spine.appendChild(day);
 
-/* month label */
+/* place month label */
 
 if(!monthLabelPlaced){
 
@@ -100,11 +90,11 @@ let monthName=document.createElement("div");
 
 monthName.className="month-label";
 
-monthName.style.left=spaceUsed+"mm";
+monthName.style.left=(10+spaceUsed)+"mm";
 
 monthName.textContent=months[m]+" "+year;
 
-currentPage.appendChild(monthName);
+page.appendChild(monthName);
 
 monthLabelPlaced=true;
 
@@ -119,7 +109,7 @@ spaceUsed+=DAY_WIDTH;
 }
 
 
-/* helper */
+/* create page */
 
 function createPage(){
 
