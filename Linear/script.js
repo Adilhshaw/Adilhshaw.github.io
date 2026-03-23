@@ -1,4 +1,4 @@
-const indianHolidays = {
+const indianHolidays={
 "01-26":"Republic Day",
 "08-15":"Independence Day",
 "10-02":"Gandhi Jayanti",
@@ -7,9 +7,15 @@ const indianHolidays = {
 
 function generateCalendar(){
 
-const container = document.getElementById("calendarContainer");
+const container=document.getElementById("calendarContainer");
 
 container.innerHTML="";
+
+const strip=document.createElement("div");
+
+strip.id="calendarStrip";
+
+container.appendChild(strip);
 
 const year=parseInt(document.getElementById("yearInput").value);
 
@@ -21,52 +27,62 @@ const months=[
 "September","October","November","December"
 ];
 
-let zigzag=false;
+let currentPage=createPage();
+
+strip.appendChild(currentPage);
+
+let spine=currentPage.querySelector(".spine");
+
+let spaceUsed=0;
+
+/* each day = 8mm */
+
+const DAY_WIDTH=8;
+const PAGE_WIDTH=297;
 
 for(let m=0;m<12;m++){
 
-let monthRow=document.createElement("div");
-
-monthRow.className="month-row "+(zigzag?"right":"left");
-
-zigzag=!zigzag;
-
-let monthLabel=document.createElement("div");
-
-monthLabel.className="month-label";
-
-monthLabel.textContent=months[m]+" "+year;
-
-monthRow.appendChild(monthLabel);
-
-let spine=document.createElement("div");
-
-spine.className="spine";
-
 let days=new Date(year,m+1,0).getDate();
 
+let monthLabelPlaced=false;
+
 for(let d=1;d<=days;d++){
+
+if(spaceUsed+DAY_WIDTH>PAGE_WIDTH){
+
+currentPage=createPage();
+
+strip.appendChild(currentPage);
+
+spine=currentPage.querySelector(".spine");
+
+spaceUsed=0;
+
+monthLabelPlaced=false;
+
+}
 
 let day=document.createElement("div");
 
 day.className="day";
 
-if(d===1) day.classList.add("month-start");
+if(d===1)
+day.classList.add("month-start");
+
+if(d===1 && m!==0)
+day.classList.add("transition");
 
 let weekday=new Date(year,m,d).getDay();
 
 if(weekday===0||weekday===6)
 day.classList.add("weekend");
 
-let dateKey=
+let key=
 String(m+1).padStart(2,"0")+"-"+
 String(d).padStart(2,"0");
 
-if(showHolidays && indianHolidays[dateKey])
+if(showHolidays && indianHolidays[key])
 day.classList.add("holiday");
-
-if(d===1 && m!==0)
-day.classList.add("transition");
 
 let label=document.createElement("span");
 
@@ -76,49 +92,47 @@ day.appendChild(label);
 
 spine.appendChild(day);
 
-}
+/* month label */
 
-/* page guide every ~90 days */
+if(!monthLabelPlaced){
 
-if(m%3===0 && m!==0){
+let monthName=document.createElement("div");
 
-let guide=document.createElement("div");
+monthName.className="month-label";
 
-guide.className="page-guide";
+monthName.style.left=spaceUsed+"mm";
 
-spine.appendChild(guide);
+monthName.textContent=months[m]+" "+year;
 
-}
+currentPage.appendChild(monthName);
 
-monthRow.appendChild(spine);
-
-container.appendChild(monthRow);
+monthLabelPlaced=true;
 
 }
 
+spaceUsed+=DAY_WIDTH;
+
+}
+
+}
+
 }
 
 
-/* SVG export */
+/* helper */
 
-function exportSVG(){
+function createPage(){
 
-const calendar=document.getElementById("calendarContainer");
+let page=document.createElement("div");
 
-let serializer=new XMLSerializer();
+page.className="page";
 
-let source=serializer.serializeToString(calendar);
+let spine=document.createElement("div");
 
-let blob=new Blob([source],{type:"image/svg+xml;charset=utf-8"});
+spine.className="spine";
 
-let url=URL.createObjectURL(blob);
+page.appendChild(spine);
 
-let link=document.createElement("a");
-
-link.href=url;
-
-link.download="linear-calendar.svg";
-
-link.click();
+return page;
 
 }
