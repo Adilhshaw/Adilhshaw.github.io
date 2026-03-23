@@ -1,0 +1,162 @@
+body{
+font-family:Georgia, serif;
+margin:0;
+background:#f4f4f4;
+}
+
+/* header */
+
+header{
+background:#1e9aa7;
+color:white;
+padding:20px;
+}
+
+.toolbar{
+display:flex;
+gap:14px;
+flex-wrap:wrap;
+align-items:center;
+}
+
+button{
+padding:6px 14px;
+background:#0c5a60;
+border:none;
+color:white;
+cursor:pointer;
+}
+
+/* main canvas */
+
+main{
+padding:30px;
+overflow-x:auto;
+}
+
+/* horizontal master strip */
+
+#calendarStrip{
+display:flex;
+height:160px;
+position:relative;
+}
+
+/* each physical A4 tile */
+
+.page{
+width:297mm;
+height:210mm;
+box-sizing:border-box;
+padding:25mm 10mm;
+border-right:1px dashed #ccc;
+position:relative;
+}
+
+/* continuous spine */
+
+.spine{
+position:absolute;
+top:120mm;
+left:0;
+right:0;
+border-top:2px solid black;
+display:flex;
+}
+
+/* day ticks */
+
+.day{
+width:8mm;
+position:relative;
+text-align:center;
+font-size:11px;
+}
+
+/* vertical tick */
+
+.day::before{
+content:"";
+position:absolute;
+top:-10mm;
+left:50%;
+width:0.4mm;
+height:7mm;
+background:black;
+}
+
+/* number */
+
+.day span{
+position:absolute;
+top:-16mm;
+left:50%;
+transform:translateX(-50%);
+}
+
+/* weekend thicker */
+
+.weekend::before{
+width:1mm;
+}
+
+/* month start */
+
+.month-start::before{
+height:16mm;
+width:1.4mm;
+}
+
+/* transition marker */
+
+.transition::before{
+background:repeating-linear-gradient(
+45deg,
+black 0,
+black 1mm,
+white 1mm,
+white 2mm
+);
+height:16mm;
+width:1.4mm;
+}
+
+/* month label */
+
+.month-label{
+position:absolute;
+top:95mm;
+font-size:22px;
+font-weight:bold;
+}
+
+/* holiday highlight */
+
+.holiday{
+color:#b71c1c;
+font-weight:bold;
+}
+
+/* print behaviour */
+
+@media print{
+
+header{
+display:none;
+}
+
+main{
+padding:0;
+}
+
+.page{
+border:none;
+page-break-after:always;
+}
+
+@page{
+size:A4 landscape;
+margin:0;
+}
+
+}
