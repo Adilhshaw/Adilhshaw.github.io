@@ -1,112 +1,160 @@
 body{
-    font-family: Georgia, serif;
-    margin:0;
+font-family:Georgia, serif;
+margin:0;
+background:#f7f7f7;
 }
 
-.controls{
-    padding:20px;
-    background:#1e9aa7;
-    color:white;
+header{
+background:#1e9aa7;
+color:white;
+padding:20px;
 }
 
-#calendarContainer{
-    padding:40px;
+.toolbar{
+display:flex;
+gap:15px;
+align-items:center;
+flex-wrap:wrap;
 }
 
-/* timeline spine */
-
-.timeline{
-    position:relative;
-    display:flex;
-    flex-wrap:wrap;
-    gap:60px 40px;
+button{
+padding:6px 14px;
+border:none;
+background:#0f5c64;
+color:white;
+cursor:pointer;
 }
 
-/* each month row */
+main{
+padding:40px;
+}
+
+/* month rows */
 
 .month-row{
-    position:relative;
-    width:100%;
+margin-bottom:70px;
+position:relative;
 }
 
-/* horizontal base line */
+/* spine */
 
 .spine{
-    position:relative;
-    border-top:2px solid black;
-    height:40px;
-    display:flex;
+border-top:2px solid black;
+display:flex;
+position:relative;
+height:40px;
 }
 
-/* day ticks */
+/* tick */
 
 .day{
-    position:relative;
-    width:22px;
-    text-align:center;
-    font-size:12px;
+width:22px;
+position:relative;
+text-align:center;
+font-size:12px;
 }
 
-/* vertical tick */
+/* tick mark */
 
 .day::before{
-    content:"";
-    position:absolute;
-    top:-8px;
-    left:50%;
-    width:1px;
-    height:14px;
-    background:black;
+content:"";
+position:absolute;
+top:-8px;
+left:50%;
+width:1px;
+height:14px;
+background:black;
 }
 
-/* number placement */
+/* number */
 
 .day span{
-    position:absolute;
-    top:-26px;
-    left:50%;
-    transform:translateX(-50%);
+position:absolute;
+top:-26px;
+left:50%;
+transform:translateX(-50%);
 }
 
-/* weekend highlight */
+/* weekend */
 
 .weekend::before{
-    background:black;
-    width:3px;
+width:3px;
 }
 
-/* first day of month */
+/* month start */
 
 .month-start::before{
-    height:30px;
-    width:4px;
+height:32px;
+width:4px;
+}
+
+/* checker transition */
+
+.transition::before{
+background:repeating-linear-gradient(
+45deg,
+black 0px,
+black 2px,
+white 2px,
+white 4px
+);
+width:4px;
+height:32px;
+}
+
+/* holidays */
+
+.holiday{
+color:#c62828;
+font-weight:bold;
 }
 
 /* month label */
 
 .month-label{
-    position:absolute;
-    top:-60px;
-    left:0;
-    font-size:26px;
-    font-weight:bold;
+position:absolute;
+top:-55px;
+font-size:26px;
+font-weight:bold;
 }
 
-/* print layout */
+/* zigzag alignment */
+
+.left{
+text-align:left;
+}
+
+.right{
+text-align:right;
+direction:rtl;
+}
+
+/* page guides */
+
+.page-guide{
+border-right:2px dashed #bbb;
+height:80px;
+}
+
+/* print */
 
 @media print{
 
-.controls{
-    display:none;
+header,footer{
+display:none;
 }
 
 @page{
-    size:A4 landscape;
-    margin:10mm;
+size:A4 landscape;
+margin:10mm;
 }
 
 body{
-    zoom:90%;
+zoom:92%;
+}
+
+.page-guide{
+display:none;
 }
 
 }
