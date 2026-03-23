@@ -13,46 +13,86 @@ body{
     padding:40px;
 }
 
+/* timeline spine */
+
 .timeline{
+    position:relative;
     display:flex;
     flex-wrap:wrap;
-    gap:30px;
+    gap:60px 40px;
 }
 
-.month-block{
+/* each month row */
+
+.month-row{
+    position:relative;
+    width:100%;
+}
+
+/* horizontal base line */
+
+.spine{
+    position:relative;
+    border-top:2px solid black;
+    height:40px;
     display:flex;
-    align-items:center;
 }
 
-.month-name{
-    font-size:28px;
-    font-weight:bold;
-    margin-right:15px;
-    border-left:6px solid black;
-    padding-left:10px;
-}
+/* day ticks */
 
 .day{
-    width:18px;
+    position:relative;
+    width:22px;
     text-align:center;
     font-size:12px;
-    position:relative;
 }
 
-.day::after{
+/* vertical tick */
+
+.day::before{
     content:"";
     position:absolute;
-    bottom:-6px;
+    top:-8px;
     left:50%;
     width:1px;
-    height:10px;
+    height:14px;
     background:black;
 }
 
-.weekend{
-    background:black;
-    color:white;
+/* number placement */
+
+.day span{
+    position:absolute;
+    top:-26px;
+    left:50%;
+    transform:translateX(-50%);
 }
+
+/* weekend highlight */
+
+.weekend::before{
+    background:black;
+    width:3px;
+}
+
+/* first day of month */
+
+.month-start::before{
+    height:30px;
+    width:4px;
+}
+
+/* month label */
+
+.month-label{
+    position:absolute;
+    top:-60px;
+    left:0;
+    font-size:26px;
+    font-weight:bold;
+}
+
+/* print layout */
 
 @media print{
 
