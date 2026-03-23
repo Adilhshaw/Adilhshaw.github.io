@@ -8,18 +8,41 @@
 
 <body>
 
-<div class="controls">
-    <h1>Linear Calendar Generator</h1>
+<header>
 
-    <label>Select Year:</label>
-    <input type="number" id="yearInput" value="2026">
+<h1>Linear Calendar Generator</h1>
 
-    <button onclick="generateCalendar()">Generate</button>
-    <button onclick="window.print()">Export PDF</button>
+<div class="toolbar">
+
+<label>Year</label>
+<input type="number" id="yearInput" value="2026">
+
+<label>
+<input type="checkbox" id="holidayToggle">
+Show Indian holidays
+</label>
+
+<button onclick="generateCalendar()">Generate</button>
+<button onclick="window.print()">Export PDF</button>
+<button onclick="exportSVG()">Export SVG</button>
+
 </div>
+
+</header>
+
+<main>
 
 <div id="calendarContainer"></div>
 
+</main>
+
+<footer>
+
+<p>Printable across multiple A4 landscape pages</p>
+
+</footer>
+
 <script src="script.js"></script>
+
 </body>
 </html>
