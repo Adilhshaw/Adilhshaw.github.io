@@ -1,7 +1,6 @@
 function generateCalendar(){
 
 const container = document.getElementById("calendarContainer");
-
 const year = parseInt(document.getElementById("yearInput").value);
 
 container.innerHTML = "";
@@ -17,14 +16,17 @@ timeline.className = "timeline";
 
 for(let m=0; m<12; m++){
 
-let monthBlock = document.createElement("div");
-monthBlock.className = "month-block";
+let monthRow = document.createElement("div");
+monthRow.className = "month-row";
 
 let monthLabel = document.createElement("div");
-monthLabel.className = "month-name";
-monthLabel.textContent = months[m];
+monthLabel.className = "month-label";
+monthLabel.textContent = months[m] + " " + year;
 
-monthBlock.appendChild(monthLabel);
+monthRow.appendChild(monthLabel);
+
+let spine = document.createElement("div");
+spine.className = "spine";
 
 let daysInMonth = new Date(year, m+1, 0).getDate();
 
@@ -32,19 +34,28 @@ for(let d=1; d<=daysInMonth; d++){
 
 let day = document.createElement("div");
 day.className = "day";
-day.textContent = d;
+
+if(d===1){
+day.classList.add("month-start");
+}
 
 let weekday = new Date(year, m, d).getDay();
 
-if(weekday === 0 || weekday === 6){
+if(weekday===0 || weekday===6){
 day.classList.add("weekend");
 }
 
-monthBlock.appendChild(day);
+let label = document.createElement("span");
+label.textContent = d;
+
+day.appendChild(label);
+
+spine.appendChild(day);
 
 }
 
-timeline.appendChild(monthBlock);
+monthRow.appendChild(spine);
+timeline.appendChild(monthRow);
 
 }
 
